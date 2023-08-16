@@ -1,0 +1,25 @@
+.btn{
+    width: 100%;
+    margin-top: 5%;
+}
+
+.label{
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.boxSelect{
+    width: 100%;
+}
+
+.selectUser{
+    width: 100%;
+}
+
+.box{
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}

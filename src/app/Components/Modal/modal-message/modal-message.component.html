@@ -1,0 +1,15 @@
+<div class="modal" [ngClass]="{ 'is-active': active }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title titleModal"><b>EXITO</b></p>
+        <button class="delete" (click)="ocultar()" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body sectionForm">
+        {{message}}
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success btn" (click)="ocultar()">Confirmar</button>
+      </footer>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="modal " [ngClass]="{ 'is-active': active }">
+    <div class="modal-background"></div>
+    <div class="modal-card modalCreate">
+      <header class="modal-card-head">
+        <p class="modal-card-title titleModal"><b>Crear Nueva Actividad</b></p>
+        <button class="delete" (click)="ocultar()" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body sectionForm">
+        <app-form-create></app-form-create>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success btn" (click)="guardar()">Guardar</button>
+        <button class="button btn is-danger is-light" (click)="ocultar()">Cancelar</button>
+      </footer>
+    </div>
+</div>
+
+<app-modal-message></app-modal-message>

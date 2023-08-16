@@ -1,0 +1,20 @@
+<div class="modal" [ngClass]="{ 'is-active': active }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head headerCard">
+        <p class="modal-card-title titleModal"><b>Eliminar Actividad</b></p>
+        <button class="delete" (click)="ocultar()" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body sectionForm">
+        <p>¿Deseas eliminar la actividad que tiene por titulo?</p>
+        <p> <b>{{nameActivityModal}}</b> </p>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-danger btn" (click)="delete()">Eliminar</button>
+        <button class="button btn" (click)="ocultar()">Cancelar</button>
+      </footer>
+    </div>
+</div>
+
+<app-modal-alert (isEvent)="confirmar($event)"></app-modal-alert>
+<app-modal-message></app-modal-message>

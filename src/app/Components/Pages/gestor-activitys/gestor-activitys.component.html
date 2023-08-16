@@ -1,0 +1,149 @@
+<div class="boxFather">
+    <div class="boxOne">
+        <div class="boxInfoOne">
+            <div class="boxPhoto">
+
+            </div>
+            <div class="boxInfoUser">
+                <h1 class="nameUser"><b>{{userLocal.nameUser}}</b></h1>
+            </div>
+        </div>
+        <div class="boxInfoTwo">
+            <div class="boxInfoConfig boxInfoConfigOne" (click)="cerrarSesion()"></div>
+        </div>
+    </div>
+    <div class="boxTwo" >
+        <div class="boxActivity" >
+            <div class="headerBoxActivity">
+                <h2><b>Actividades</b></h2>
+            </div>
+            <div class="bodyBoxActivity"
+            cdkDropList 
+            #listactividades="cdkDropList"
+            [cdkDropListData]="actsNoAsignadas"
+            [cdkDropListConnectedTo]="listAsignadas"
+            (cdkDropListDropped)="drop($event)"
+            >
+
+                <div class="activity" *ngFor="let activity of actsNoAsignadas" (click)="verActivity(activity)" cdkDrag>
+                    <div class="infoActivity">
+                        <h2><b>{{activity.nameActivity}}</b></h2>
+                        <p>{{activity.descActivity}}</p>
+                        <div *ngIf="activity.userAsignado.length != 0 && activity.userAsignado!='0'">
+                            <strong class="textAsign">{{activity.userAsignado}}</strong>
+                        </div>
+                    </div>
+                    <div class="configActivity">
+                        <div class="config configOne" (click)="deleteActivity($event, activity._id, activity.nameActivity)"></div>
+                        <div class="config configTwo" (click)="editarActivity($event, activity)"></div>
+                        <div class="config configThree" (click)="asignarActivity($event, activity)"></div>
+                    </div>
+          
+                </div>
+            </div>
+            <div class="footerBoxActivity">
+                <h2>{{actsNoAsignadas.length}} Actividades</h2>
+            </div>
+            <div class="boxBtnCrearActividad">
+                <button class="button is-success" (click)="crearActivity()">
+                    Crear Actividad
+                </button>
+            </div>
+        </div>
+        <div class="boxActivity">
+            <div class="headerBoxActivity">
+                <h2><b>Asignado</b></h2>
+            </div>
+            <div class="bodyBoxActivityTwo"
+            cdkDropList 
+            #listAsignadas="cdkDropList"
+            [cdkDropListData]="actsAsignadas"
+            [cdkDropListConnectedTo]="[listProceso, listFinalizadas]"
+            (cdkDropListDropped)="drop($event)">
+                <div class="activity" *ngFor="let activity of actsAsignadas" (click)="verActivity(activity)" cdkDrag>
+                    <div class="infoActivity">
+                        <h2><b>{{activity.nameActivity}}</b></h2>
+                        <p>{{activity.descActivity}}</p>
+                        <div *ngIf="activity.userAsignado.length != 0 && activity.userAsignado!='0'">
+                            <strong class="textAsign">{{activity.userAsignado}}</strong>
+                        </div>
+                    </div>
+                    <div class="configActivity">
+                        <div class="config configOne" (click)="deleteActivity($event, activity._id, activity.nameActivity)"></div>
+                        <div class="config configTwo" (click)="editarActivity($event, activity)"></div>
+                        <div class="config configThree" (click)="asignarActivity($event, activity)"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footerBoxActivity">
+                <h2>{{actsAsignadas.length}} Actividades</h2>
+            </div>
+        </div>
+        <div class="boxActivity">
+            <div class="headerBoxActivity">
+                <h2><b>En Progreso</b></h2>
+            </div>
+            <div class="bodyBoxActivityTwo"
+            cdkDropList 
+            #listProceso="cdkDropList"
+            [cdkDropListData]="actsProceso"
+            [cdkDropListConnectedTo]="[listAsignadas,listFinalizadas]"
+            (cdkDropListDropped)="drop($event)">
+                <div class="activity" *ngFor="let activity of actsProceso" (click)="verActivity(activity)" cdkDrag>
+                    <div class="infoActivity">
+                        <h2><b>{{activity.nameActivity}}</b></h2>
+                        <p>{{activity.descActivity}}</p>
+                        <div *ngIf="activity.userAsignado.length != 0 && activity.userAsignado!='0'">
+                            <strong class="textAsign">{{activity.userAsignado}}</strong>
+                        </div>
+                    </div>
+                    <div class="configActivity">
+                        <div class="config configOne" (click)="deleteActivity($event, activity._id, activity.nameActivity)"></div>
+                        <div class="config configTwo" (click)="editarActivity($event, activity)"></div>
+                        <div class="config configThree" (click)="asignarActivity($event, activity)"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footerBoxActivity">
+                <h2>{{actsProceso.length}} Actividades</h2>
+            </div>
+        </div>
+        <div class="boxActivity">
+            <div class="headerBoxActivity">
+                <h2><b>Finalizado</b></h2>
+            </div>
+            <div class="bodyBoxActivityTwo"
+            cdkDropList 
+            #listFinalizadas="cdkDropList"
+            [cdkDropListData]="actsFinalizadas"
+            [cdkDropListConnectedTo]="[listAsignadas,listProceso]"
+            (cdkDropListDropped)="drop($event)">
+                <div class="activity" *ngFor="let activity of actsFinalizadas" (click)="verActivity(activity)" cdkDrag>
+                    <div class="infoActivity">
+                        <h2><b>{{activity.nameActivity}}</b></h2>
+                        <p>{{activity.descActivity}}</p>
+                        <div *ngIf="activity.userAsignado.length != 0 && activity.userAsignado!='0'">
+                            <strong class="textAsign">{{activity.userAsignado}}</strong>
+                        </div>
+                    </div>
+                    <div class="configActivity">
+                        <div class="config configOne" (click)="deleteActivity($event, activity._id, activity.nameActivity)"></div>
+                        <div class="config configTwo" (click)="editarActivity($event, activity)"></div>
+                        <div class="config configThree" (click)="asignarActivity($event, activity)"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footerBoxActivity">
+                <h2>{{actsFinalizadas.length}} Actividades</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-create-activity (eventCreado)="activityCreada($event)"></app-create-activity>
+<app-view-activity></app-view-activity>
+<app-edit-activity (isEvent)="activityUpdate($event)"></app-edit-activity>
+<app-eliminate-activity (isEvent)="eliminatedActivity($event)"></app-eliminate-activity>
+<app-asignar-activity (eventAsignado)="activityAsignada($event)"></app-asignar-activity>
+

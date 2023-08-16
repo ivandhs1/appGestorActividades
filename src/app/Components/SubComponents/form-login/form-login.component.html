@@ -1,0 +1,31 @@
+<form [formGroup]="loginForm" class="formLogin">
+    <div class="field" style="margin: 0;">
+        <label class="label">Nombre De Usuario</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Nombre de la Actividad"
+          formControlName="name"
+          [ngClass]="nombreNoValido == null ? '' : nombreNoValido ? 'is-danger': 'is-success'">
+        </div>
+        <p *ngIf="nombreControl.dirty==false && nombreControl.touched==false || nombreControl.valid==true" style="opacity: 0;">sds</p>
+        <div class="help" *ngIf="nombreControl.invalid && (nombreControl.touched || nombreControl.dirty)">
+          <p class="help is-danger" *ngIf="nombreControl.hasError('required')">El campo es obligatorio</p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Email de Usuario</label>
+        <div class="control">
+          <input class="input" placeholder="Por favor ingrese la contraseña"
+          formControlName="email"
+          [ngClass]="emailNoValido == null ? '' : emailNoValido ? 'is-danger': 'is-success'">
+        </div>
+        <p *ngIf="emailControl.dirty==false && emailControl.touched==false || emailControl.valid==true" style="opacity: 0;">sds</p>
+        <div class="" *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)">
+          <p class="help is-danger" *ngIf="emailControl.hasError('required')">El campo es obligatorio</p>
+          <p class="help is-danger" *ngIf="emailControl.hasError('email')">El campo no es formato email</p>
+        </div>
+      </div>
+</form>
+<button class="button is-link btnIngresar" (click)="ingresar()">INGRESAR</button>
+
+<app-modal-alert></app-modal-alert>
+

@@ -1,0 +1,38 @@
+.formLogin{
+    display: flex;
+    flex-direction: column;
+}
+
+.box-login{
+    display: flex;
+    flex-direction: column;
+}
+
+.box-login label{
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+
+.box-login input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.btnIngresar{
+    width: 100%;
+    height: 50px;
+    border: 1px solid ;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    background-color: #3bc4c6;
+    transition: 0.2s;
+}
+
+.btnIngresar:hover{
+    background-color: #2dcbce;
+}
+
+.boxHelp{
+    height: 10px;
+}

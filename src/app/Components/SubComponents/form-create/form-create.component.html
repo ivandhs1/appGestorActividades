@@ -1,0 +1,31 @@
+<form [formGroup]="crearActsForm"> 
+  <div class="field" style="margin: 0;">
+    <label class="label">Nombre De Actividad</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Nombre de la Actividad"
+      formControlName="nombre"
+      [ngClass]="nombreNoValido == null ? '' : nombreNoValido ? 'is-danger': 'is-success'">
+    </div>
+    <p *ngIf="nombreControl.dirty==false && nombreControl.touched==false || nombreControl.valid==true" style="opacity: 0;">sds</p>
+    <div class="help" *ngIf="nombreControl.invalid && (nombreControl.touched || nombreControl.dirty)">
+      <p class="help is-danger" *ngIf="nombreControl.hasError('required')">El campo es obligatorio</p>
+    </div>
+  </div>
+  
+  <div class="field">
+    <label class="label">Descripcion de la Actividad</label>
+    <div class="control">
+      <textarea class="textarea" placeholder="Por favor ingrese la descripcion de la actividad aqui"
+      formControlName="descripcion"
+      [ngClass]="descripcionNoValido == null ? '' : descripcionNoValido ? 'is-danger': 'is-success'"></textarea>
+    </div>
+    <p *ngIf="descripcionControl.dirty==false && descripcionControl.touched==false || descripcionControl.valid==true" style="opacity: 0;">sds</p>
+    <div class="" *ngIf="descripcionControl.invalid && (descripcionControl.touched || descripcionControl.dirty)">
+      <p class="help is-danger" *ngIf="descripcionControl.hasError('required')">El campo es obligatorio</p>
+    </div>
+  </div>
+</form>
+
+<app-modal-alert></app-modal-alert>
+
+

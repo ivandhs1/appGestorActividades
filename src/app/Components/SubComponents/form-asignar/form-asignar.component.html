@@ -1,0 +1,12 @@
+<form [formGroup]="asignateActsForm">
+    <div class="field box">
+        <label class="label">Usuarios:</label>
+        <div class="select is-primary boxSelect">
+            <select class="selectUser"  formControlName="usuario">
+              <option>Selecciona un usuario</option>
+              <option *ngFor="let user of users">{{user.emailUser}}</option>
+            </select>
+          </div>
+    </div>
+</form>      
+<button class="button is-success btn" (click)="asignateUser()">ASIGNAR</button>
